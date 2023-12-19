@@ -1,0 +1,77 @@
+#1
+def count_sentences_words_characters(file_name):
+    try:
+        with open(file_name, 'r') as file:
+            content = file.read()
+
+            # Count sentences (assumes '.' as the sentence delimiter)
+            sentences = content.count('.')
+
+            # Count words (split by spaces)
+            words = len(content.split())
+
+            # Count characters
+            characters = len(content)
+
+            return sentences, words, characters
+    except FileNotFoundError:
+        return None
+
+# Taking input from the user for the file name
+file_name = input("Enter the file name: ")
+
+result = count_sentences_words_characters(file_name)
+if result:
+    sentences, words, characters = result
+    print(f"Sentences: {sentences}")
+    print(f"Words: {words}")
+    print(f"Characters: {characters}")
+else:
+    print("File not found or unable to read.")
+
+
+
+#2
+def copy_to_lowercase(file_name):
+    try:
+        with open(file_name, 'r') as source_file, open('target.txt', 'w') as target_file:
+            lines_copied = 0
+            for line in source_file:
+                lowercase_line = ''.join(c.lower() for c in line if c.isalpha())
+                target_file.write(lowercase_line + '\n')
+                lines_copied += 1
+            return lines_copied
+    except FileNotFoundError:
+        return None
+
+# Creating a new file and copying the content to target.txt
+file_name = 'Hello.txt'  # Replace this with your filename
+lines_copied = copy_to_lowercase(file_name)
+if lines_copied is not None:
+    print(f"Number of lines copied to target.txt: {lines_copied}")
+else:
+    print("File not found or unable to read.")
+
+
+
+#3
+class Student:
+    def _init_(self, name, roll_number, branch):
+        self.name = name
+        self.roll_number = roll_number
+        self.branch = branch
+
+# Storing student records in a list
+students = [
+    Student("John", 101, "Computer Science"),
+    Student("Alice", 102, "Electrical Engineering"),
+    Student("Bob", 103, "Computer Science"),
+    # Add more students here...
+]
+
+# Print details of students from a specific branch
+given_branch = "Computer Science"
+print(f"Students in {given_branch} branch:")
+for student in students:
+    if student.branch == given_branch:
+        print(f"Name: {student.name}, Roll Number: {student.roll_number}, Branch: {student.branch}")
