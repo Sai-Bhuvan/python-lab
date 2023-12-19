@@ -1,0 +1,15 @@
+tup=[(1,2,3),(20,88,78)]
+
+k=int(input('enter a no'))
+ans=[]
+
+for i in tup:
+    flag=0
+    for j in i:
+        if j%k!=0:
+            flag=1
+    if flag==0:
+        ans.append(i)
+        
+        
+print(ans)
