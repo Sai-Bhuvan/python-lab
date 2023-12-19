@@ -1,0 +1,15 @@
+email=(input("enter email"))
+
+c=v=d=b=0
+
+for i in email:
+    if i in 'aeiou':
+        v+=1
+    elif i in '0123456789':
+        d+=1
+    elif i in ' ':
+        b+=1
+    else:
+        c+=1
+        
+print(v ,'\n',c,'\n',d ,'\n',b)
