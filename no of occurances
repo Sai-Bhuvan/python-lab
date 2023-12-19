@@ -1,0 +1,13 @@
+tup=('a','a','b')
+lis=['a','b']
+ans={}
+
+for i in lis:
+    oc=0
+    for j in tup:
+        if i ==j :
+            oc+=1
+    print(oc,i)
+        
+        
+print(ans)
