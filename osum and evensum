@@ -1,0 +1,16 @@
+
+n=int(input('eneter the num'))
+ans=[]
+osum=0
+esum=0
+ 
+for i in range(n):
+    a=int(input('enter the value'))
+    ans.append(a)
+    if a%2==0:
+        esum+=a
+    else:
+        osum+=a
+     
+print(esum)
+print(osum)
