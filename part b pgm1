@@ -1,0 +1,57 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+# Load the data from a CSV or Excel file
+file_path = 'iris.csv'  # Replace 'your_data.csv' with your file path
+data = pd.read_csv(file_path)  # For Excel, use pd.read_excel()
+
+# Extract x and y values from the dataset
+x_values = data['SepalLengthCm'].values.reshape(-1, 1)  # Reshape for sklearn
+y_values = data['SepalWidthCm']
+
+# i. Scatter plot
+plt.scatter(x_values, y_values)
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.title('Scatter Plot')
+plt.show()
+
+# ii. Calculate mean (average)
+x_mean = x_values.mean()
+y_mean = y_values.mean()
+print(f"Mean of X: {x_mean}")
+print(f"Mean of Y: {y_mean}")
+
+# iii. Calculate median
+x_median = x_values.median()
+y_median = y_values.median()
+print(f"Median of X: {x_median}")
+print(f"Median of Y: {y_median}")
+
+# iv. Calculate standard deviation
+x_std_dev = x_values.std()
+y_std_dev = y_values.std()
+print(f"Standard Deviation of X: {x_std_dev}")
+print(f"Standard Deviation of Y: {y_std_dev}")
+
+# v. Calculate variance
+x_variance = x_values.var()
+y_variance = y_values.var()
+print(f"Variance of X: {x_variance}")
+print(f"Variance of Y: {y_variance}")
+
+# vi. Calculate slope using Linear Regression from sklearn
+regression = LinearRegression()
+regression.fit(x_values, y_values)
+slope = regression.coef_[0]
+intercept = regression.intercept_
+print(f"Slope: {slope}")
+
+# vii. Draw regression line
+plt.scatter(x_values, y_values)
+plt.plot(x_values, regression.predict(x_values), color='red')  # Regression line
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.title('Scatter Plot with Regression Line')
+plt.show()
