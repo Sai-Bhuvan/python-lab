@@ -1,0 +1,10 @@
+
+n=int(input('eneter the num'))
+ans=[]
+
+for i in range(n):
+    a=int(input('enter the value'))
+    ans.append(a)
+    
+print(set(ans))
+        
