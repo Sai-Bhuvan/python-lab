@@ -1,0 +1,29 @@
+
+class BAnk:
+    def __init__(self,bank,cust):
+        self.bank=bank
+        self.cust=cust
+ 
+        
+    def __str__(self):
+        return f"{self.bank} {self.cust} "
+        
+class Govt_bank(BAnk):
+    def __init__(self,bank,cust,ifsc):
+        super().__init__(bank,cust)
+        self.ifsc=ifsc
+        
+    def __str__(self):
+        return f"{self.bank} {self.cust}  {self.ifsc}"
+        
+class private_bank(BAnk):
+    def __init__(self,bank,cust,ifsc):
+        super().__init__(bank,cust)
+        self.ifsc=ifsc
+        
+    def __str__(self):
+        return f"{self.bank} {self.cust}  {self.ifsc}"
+        
+
+print(Govt_bank('kbc',345,23456))
+print(private_bank('hello',1,234))
