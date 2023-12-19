@@ -1,0 +1,5 @@
+str=input("enter a string")
+
+ans=str.split()
+ans.pop(0)
+print(ans)
