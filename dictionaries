@@ -1,0 +1,45 @@
+#1
+e=dict()
+
+e['one']=1
+e['two']=2
+
+e.update({'one':3})
+
+print(e['one'])
+print(e.get('one'))
+
+del e['one']
+
+print(e)
+
+e['three']=3
+e['four']=4
+
+#2
+e.pop('two')
+print(e)
+e.popitem()
+print(e)
+e.clear()
+
+print(e)
+
+#3 sum of items of dictionary
+def returnsum(dict):
+    sum=0
+    for i in dict:
+        sum+=dict[i]
+        
+    return sum
+    
+    
+print(returnsum({'a':200,'b':300,'c':678}))
+
+#4 merge two dictionaries
+dict1={'a':20,'b':100}
+dict2={'s':30}
+
+dict1.update(dict2)
+
+print(dict1)
