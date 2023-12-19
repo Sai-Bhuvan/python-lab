@@ -1,0 +1,16 @@
+str=input("enter a string")
+
+if len(str)==1:
+    print('sym')
+elif len(str)%2==1:
+    print('not')
+else:
+    str1=str[:len(str)//2]
+    str2=str[len(str)//2:]
+    print(str1==str2)
+
+
+if(str[::-1]==str):
+    print('yea')
+else :
+    print('no')
