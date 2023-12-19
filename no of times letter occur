@@ -1,0 +1,11 @@
+str=input("enter a string")
+
+ans={}
+
+for i in str:
+    if i in ans:
+        ans[i]+=1
+    else:
+        ans[i]=1
+        
+print(ans)
