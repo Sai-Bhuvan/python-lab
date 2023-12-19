@@ -1,0 +1,19 @@
+units=int(input("enter unit"))
+price=0
+if units>350:
+    price+=1500
+    units=300
+if 300<units<=350:
+    price+=100+7*(units-300)
+    units=300
+if 200<units<=300:
+    price+=5+(units-200)*4
+    units=200
+if 100<units<=200:
+    price+=50+(units-100)*2.5
+    units=100
+if 0 <units<=100:
+    price+=25+units*1.5
+    units=0
+    
+print(price)
