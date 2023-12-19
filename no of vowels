@@ -1,0 +1,10 @@
+str=input("enter a string")
+
+no_vowel=0
+for i in str:
+    if i in'aeiou':
+        no_vowel+=1
+    if i !='e' and i!='s':
+        print(i)
+        
+print(no_vowel)
