@@ -1,0 +1,9 @@
+from math import sqrt 
+
+x=int(input("enter the x of first point"))
+y=int(input("enter the y of first point"))
+a=int(input("enter the a of second point"))
+z=int(input("enter the z of second point"))
+
+dist=sqrt(pow(x-a,2)+pow(y-z,2))
+print(dist)
