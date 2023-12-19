@@ -1,0 +1,30 @@
+#with constructor
+class CAR:
+    def __init__(self,model,color,price,topspeed):
+        self.model=model
+        self.color=color
+        self.price=price
+        self.topspeed=topspeed
+        
+    def __str__(self):
+        return f"{self.model} {self.color} {self.price} {self.topspeed}"
+        
+
+print(    CAR('virtus','green',456,123))
+
+#without constructor
+class CARre:
+    def enter(self):
+        self.model=input('enter re')
+        self.color=input('enter re')
+        self.price=input('enter re')
+        self.topspeed=input('enter re')
+        
+    def __str__(self):
+        return f"{self.model} {self.color} {self.price} {self.topspeed}"
+        
+
+print(    CAR('virtus','green',456,123))
+hi=CARre()
+hi.enter()
+print(hi)
