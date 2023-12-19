@@ -1,0 +1,60 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Read data from the result file
+file_path = 'results.csv'  # Replace 'results.csv' with your file path
+results_data = pd.read_csv(file_path)  # For Excel, use pd.read_excel()
+
+results_data = results_data.iloc[:, 1:7]
+results_data
+
+# Calculate pass and fail counts for each subject and overall
+pass_fail_data = {}
+subjects = results_data.columns[1 : 7]  # Assuming first column is student names/id
+subjects
+
+for subject in subjects:
+    pass_count = sum(results_data[subject] >= 35)
+    fail_count = sum(results_data[subject] < 35)
+    pass_fail_data[subject] = {'Pass': pass_count, 'Fail': fail_count}
+    
+pass_fail_data
+
+# Visualizations
+# Scatter Plot
+plt.figure(figsize=(8, 6))
+sns.scatterplot(x='Maths', y='Science', data=results_data)
+plt.title('Scatter Plot: Math vs Science')
+plt.xlabel('Maths')
+plt.ylabel('Science')
+plt.show()
+
+# Line Chart
+plt.figure(figsize=(8, 6))
+results_data.mean().plot(kind='line')
+plt.title('Line Chart: Average Marks by Subject')
+plt.xlabel('Subjects')
+plt.ylabel('Average Marks')
+# plt.xticks(rotation=45)
+plt.show()
+
+# Bar Chart
+pass_fail_df = pd.DataFrame(pass_fail_data).transpose()
+pass_fail_df.plot(kind='bar', stacked=True, figsize=(10, 6))
+plt.title('Bar Chart: Pass/Fail Count by Subject and Overall')
+plt.xlabel('Subjects')
+plt.ylabel('Count')
+plt.xticks(rotation=45)
+plt.legend(title='Result')
+plt.show()
+
+# Histogram
+plt.figure(figsize=(8, 6))
+sns.histplot(results_data['Maths'], bins=10, kde=True)
+plt.title('Histogram: Math Marks Distribution')
+plt.xlabel('Maths Marks')
+plt.ylabel('Frequency')
+plt.show()
+
+results_data['Science'].mean()
