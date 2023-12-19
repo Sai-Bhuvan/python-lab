@@ -1,0 +1,48 @@
+class Time:
+    def __init__(self, hour, minute, second):
+        self.hour = hour
+        self.minute = minute
+        self.second = second
+
+    def __str__(self):
+        return f"{self.hour:02}:{self.minute:02}:{self.second:02}"
+
+    def __add__(self, other):
+        total_seconds_self = self.hour * 3600 + self.minute * 60 + self.second
+        total_seconds_other = other.hour * 3600 + other.minute * 60 + other.second
+        total_seconds = total_seconds_self + total_seconds_other
+
+        hours = total_seconds // 3600
+        total_seconds %= 3600
+        minutes = total_seconds // 60
+        seconds = total_seconds % 60
+
+        return Time(hours, minutes, seconds)
+
+    def __sub__(self, other):
+        total_seconds_self = self.hour * 3600 + self.minute * 60 + self.second
+        total_seconds_other = other.hour * 3600 + other.minute * 60 + other.second
+        diff_seconds = abs(total_seconds_self - total_seconds_other)
+
+        hours = diff_seconds // 3600
+        diff_seconds %= 3600
+        minutes = diff_seconds // 60
+        seconds = diff_seconds % 60
+
+        return Time(hours, minutes, seconds)
+
+
+# Example usage:
+t1 = Time(1, 20, 30)
+t2 = Time(0, 45, 15)
+
+print("Time 1:", t1)  # Output: Time 1: 01:20:30
+print("Time 2:", t2)  # Output: Time 2: 00:45:15
+
+# Adding two Time objects
+sum_time = t1 + t2
+print("Sum of times:", sum_time)  # Output: Sum of times: 02:05:45
+
+# Subtracting two Time objects
+diff_time = t1 - t2
+print("Difference of times:", diff_time)  # Output: Difference of times: 00:35:15
