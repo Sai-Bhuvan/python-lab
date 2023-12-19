@@ -1,0 +1,14 @@
+tup=[("GFG","FGFGF","HELLO"),("hello")]
+
+ans=[]
+
+for i in tup:
+    flag=0
+    for j in i:
+        if j.isupper() != True:
+            flag=1
+    if flag==0:
+        ans.append(i)
+        
+        
+print(ans)
