@@ -1,0 +1,14 @@
+ 
+x=4
+y=5
+ 
+n=int(input('eneter the num'))
+ans=[]
+ 
+for i in range(n):
+    a=int(input('enter the value'))
+    ans.append(a)
+     
+for i in ans:
+    if i%x==0 and i%y!=0:
+        print(i)
