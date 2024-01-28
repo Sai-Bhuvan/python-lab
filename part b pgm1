@@ -55,3 +55,59 @@ plt.xlabel('X')
 plt.ylabel('Y')
 plt.title('Scatter Plot with Regression Line')
 plt.show()
+
+
+
+
+
+# by typing the dataset
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Manually input the dataset
+data_dict = {
+    'Hindi': [65, 94, 7, 88, 39, 51, 73],
+    'English': [10, 56, 85, 46, 81, 43, 48],
+    'Science': [59, 4, 76, 59, 37, 14, 6],
+    'Maths': [3, 67, 99, 94, 38, 53, 38],
+    'History': [71, 91, 60, 52, 6, 64, 50],
+    'Geography': [37, 50, 25, 38, 54, 59, 21],
+    'Total': [245, 362, 352, 377, 255, 284, 236],
+    'Results': [0, 1, 0, 1, 1, 1, 0],
+    'Div': [3, 1, 2, 1, 3, 2, 3]
+}
+
+# Create a DataFrame
+data = pd.DataFrame(data_dict)
+
+# Count the number of pass and fail for each subject
+pass_fail_count = {}
+subjects = ['Hindi', 'English', 'Science', 'Maths', 'History', 'Geography']
+
+for subject in subjects:
+    pass_count = len(data[data[subject] >= 40])
+    fail_count = len(data[data[subject] < 40])
+    pass_fail_count[subject] = {'Pass': pass_count, 'Fail': fail_count}
+
+# Analyze overall result
+overall_pass_count = len(data[data['Results'] == 1])
+overall_fail_count = len(data[data['Results'] == 0])
+
+# Visualize output
+# Bar chart for pass/fail count in each subject
+pass_fail_df = pd.DataFrame(pass_fail_count)
+pass_fail_df.plot(kind='bar', stacked=True)
+plt.title('Pass/Fail Count in Each Subject')
+plt.xlabel('Subjects')
+plt.ylabel('Count')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+# Pie chart for overall pass/fail count
+plt.figure(figsize=(8, 6))
+plt.pie([overall_pass_count, overall_fail_count], labels=['Pass', 'Fail'], autopct='%1.1f%%', startangle=140)
+plt.title('Overall Pass/Fail Percentage')
+plt.axis('equal')
+plt.show()
