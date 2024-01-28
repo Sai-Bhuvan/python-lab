@@ -41,3 +41,62 @@ plt.title('Histogram of Total Bills')
 plt.xlabel('SepalLengthCm')
 plt.ylabel('frequency')
 plt.show()
+
+
+
+
+
+#by typing the dataset
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Manually create the dataset
+data = {
+    'total_bill': [16.99, 10.34, 21.01, 23.68, 24.59, 25.29, 8.77, 26.88],
+    'tip': [1.01, 1.66, 3.5, 3.31, 3.61, 4.71, 2, 3.12],
+    'sex': ['Female', 'Male', 'Male', 'Male', 'Female', 'Male', 'Male', 'Male'],
+    'smoker': ['No', 'No', 'No', 'No', 'No', 'No', 'No', 'No'],
+    'day': ['Sun', 'Sun', 'Sun', 'Sun', 'Sun', 'Sun', 'Sun', 'Sun'],
+    'time': ['Dinner', 'Dinner', 'Dinner', 'Dinner', 'Dinner', 'Dinner', 'Dinner', 'Dinner'],
+    'size': [2, 3, 3, 2, 4, 4, 2, 4]
+}
+
+# Convert the dictionary to a DataFrame
+tips = pd.DataFrame(data)
+
+# Display the top 10 rows
+print("Top 10 rows of the tips database:")
+print(tips.head(10))
+
+# Scatter Plot (day vs tip)
+plt.figure(figsize=(8, 6))
+sns.scatterplot(x='day', y='tip', data=tips)
+plt.title('Scatter Plot of Day vs Tip')
+plt.xlabel('Day')
+plt.ylabel('Tip')
+plt.show()
+
+# Line Chart (day against tip)
+plt.figure(figsize=(8, 6))
+sns.lineplot(x='day', y='tip', data=tips)
+plt.title('Line Chart of Day against Tip')
+plt.xlabel('Day')
+plt.ylabel('Tip')
+plt.show()
+
+# Bar chart with day against tip
+plt.figure(figsize=(8, 6))
+sns.barplot(x='day', y='tip', data=tips)
+plt.title('Bar Chart of Day against Tip')
+plt.xlabel('Day')
+plt.ylabel('Tip')
+plt.show()
+
+# Histogram of total_bills
+plt.figure(figsize=(8, 6))
+sns.histplot(tips['total_bill'], bins=20, kde=True)
+plt.title('Histogram of Total Bills')
+plt.xlabel('Total Bill')
+plt.ylabel('Frequency')
+plt.show()
